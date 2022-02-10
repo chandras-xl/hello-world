@@ -9,9 +9,9 @@ pipeline{
         }
     }
     post{
-        always{
-            cleanWs()
-        }
+        // always{
+        //     cleanWs()
+        // }
         success{
             slackSend channel: '#jenkinsci',
                       color: 'good',
