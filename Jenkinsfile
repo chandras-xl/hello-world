@@ -10,7 +10,7 @@ pipeline{
         stage('Copy artifacts'){
             steps{
                 sh '''
-                    cp webapp/target/*.war ~
+                    cp webapp/target/*.war $HOME
                 '''
             }
         }
