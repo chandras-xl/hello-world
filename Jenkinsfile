@@ -7,6 +7,13 @@ pipeline{
                 sh 'mvn clean install package'
             }
         }
+        stage('Copy artifacts'){
+            steps{
+                sh '''
+                    cp webapp/target/*.war ~
+                '''
+            }
+        }
     }
     post{
         // always{
