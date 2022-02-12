@@ -16,7 +16,7 @@ pipeline{
         }
         stage('Docker build'){
             steps{
-                sh "docker build ${env.HOME} ."
+                sh "docker build ${env.HOME}/."
                 sh "docker images"
             }
         }
