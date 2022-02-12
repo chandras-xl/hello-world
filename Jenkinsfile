@@ -11,17 +11,13 @@ pipeline{
         }
         stage('Copy artifacts'){
             steps{
-                sh '''
-                    cp webapp/target/*.war \${env.HOME}
-                '''
-            }
+                sh "cp webapp/target/*.war ${env.HOME}"
+            }"
         }
         stage('Docker build'){
             steps{
-                sh '''
-                    docker build ${env.HOME} .
-                    docker images
-                '''
+                sh "docker build ${env.HOME} ."
+                sh "docker images"
             }
         }
     }
