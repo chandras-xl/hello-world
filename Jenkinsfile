@@ -20,6 +20,11 @@ pipeline{
                 sh "docker images"
             }
         }
+        // stage("Run docker container"){
+        //     steps{
+        //         sh "docker run -d "
+        //     }
+        // }
     }
     post{
         always{
