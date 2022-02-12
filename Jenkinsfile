@@ -12,7 +12,7 @@ pipeline{
         stage('Copy artifacts'){
             steps{
                 sh "cp webapp/target/*.war ${env.HOME}"
-            }"
+            }
         }
         stage('Docker build'){
             steps{
