@@ -1,6 +1,8 @@
 pipeline{
     agent any
-
+    environment{
+        HOME = "/home/ubuntu/artifact"
+    }
     stages{
         stage('Build'){
             steps{
@@ -10,7 +12,15 @@ pipeline{
         stage('Copy artifacts'){
             steps{
                 sh '''
-                    cp webapp/target/*.war /home/ubuntu/artifact
+                    cp webapp/target/*.war ${env.HOME}
+                '''
+            }
+        }
+        stage('Docker build'){
+            steps{
+                sh '''
+                    docker build ${env.HOME} .
+                    docker images
                 '''
             }
         }
